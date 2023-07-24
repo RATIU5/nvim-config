@@ -1,14 +1,21 @@
 local wk = require("which-key")
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
+local builtin = require("telescope.builtin")
 
 wk.register({
-	p = {
-		name = "Project",
+	f = {
+		name = "File",
+		n = { "<cmd>enew<cr>", "New file" },
+		s = { function() builtin.grep_string({ search = vim.fn.input("Grep > ") }) end, "Search in file" },
+		o = { "<cmd>gg=G<cr>", "Format file" },
 		f = { "<cmd>Telescope find_files<cr>", "Find file in project" },
-		v = { "<cmd>Ex<cr>", "Show file viewer" },
-		n = { "<cmd>enew<cr>", "New File" },
-		s = { "<cmd>w<cr>", "Save File" },
+		p = { "<cmd>Telescope git_files<cr>", "Git files" },
+		s = { "<cmd>w<cr>", "Save file" },
+	},
+	v = {
+		name = "View",
+		v = { "<cmd>Ex<cr>", "Show viewer" },
 	},
 	h = { 
 		name = "Harpoon",
