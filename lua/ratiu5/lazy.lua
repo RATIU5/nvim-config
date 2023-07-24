@@ -10,4 +10,42 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-print("lazy")
+require("lazy").setup({
+	-- Telescope for fuzzy finding
+	{
+		'nvim-telescope/telescope.nvim', tag = '0.1.2',
+		-- or                          , branch = '0.1.x',
+		dependencies = { 'nvim-lua/plenary.nvim' }
+	},
+	{
+		'sainnhe/gruvbox-material', 
+		config = function()
+			vim.cmd('set background=dark')
+			vim.cmd('let g:gruvbox_material_background = "soft"')
+			vim.cmd('colorscheme gruvbox-material')
+		end
+	},
+	{
+		'nvim-treesitter/nvim-treesitter',
+		build = ":TSUpdate"
+	},
+	{
+		'theprimeagen/harpoon'
+	},
+	{
+		'tpope/vim-fugitive'
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		}
+	}
+})
