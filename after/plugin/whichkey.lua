@@ -19,6 +19,11 @@ wk.register({
 		["3"] = { function() ui.nav_file(3) end, "Navigate to file 3" },
 		["4"] = { function() ui.nav_file(4) end, "Navigate to file 4" },
 	},
-
+	g = { 
+		name = "Git",
+		s = { "<cmd>Git<cr>", "Git" },
+		a = { "<cmd>Git add *<cr>", "git add *" },
+	},
+	
 
 }, { prefix = "<leader>" })
