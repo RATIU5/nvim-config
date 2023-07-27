@@ -29,4 +29,6 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
+vim.api.nvim_command('set fcs=eob:\\ ')
+
 vim.g.mapleader = " "
